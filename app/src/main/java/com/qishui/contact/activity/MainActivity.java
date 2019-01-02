@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.View;
 
+import com.qishui.commontoolslibrary.core.PermissionUtils;
 import com.qishui.contact.R;
 import com.qishui.contact.fragment.ContactFragment;
 import com.qishui.contact.fragment.HappyFragment;
@@ -31,6 +32,32 @@ public class MainActivity extends BaseActivity {
 
         setFragment();
         setDrawLayout();
+        setPermissions();
+    }
+
+    /**
+     * 请求权限
+     */
+    private void setPermissions() {
+
+        PermissionUtils.with(this).
+                addPermissions(PermissionUtils.GROUP_STORAGE)
+                .addPermissions(PermissionUtils.GROUP_CAMERA)
+                .addPermissions(PermissionUtils.GROUP_LOCATION)
+                .request()
+                .setCallback(new PermissionUtils.Callback() {
+                    @Override
+                    public void refuse() {
+
+                        PermissionUtils.goSetInfo(MainActivity.this, PermissionUtils.getPermission(), new PermissionUtils.SetCallback() {
+                            @Override
+                            public void onclikCancle() {
+                                    finish();
+                            }
+                        });
+                    }
+
+                });
     }
 
     @Override
