@@ -4,10 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/fragment_message_ll"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_message_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="200dp"/>
+
+    <TextView
+        android:background="@color/colorBlack"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 
 </LinearLayout>

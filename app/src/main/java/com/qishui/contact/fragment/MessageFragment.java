@@ -2,6 +2,7 @@ package com.qishui.contact.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
 
 import com.qishui.commontoolslibrary.annotation.QBindView;
@@ -15,8 +16,8 @@ import com.qishui.contact.R;
 
 public class MessageFragment extends BaseQiShuiFragment {
 
-    @QBindView(R.id.fragment_message_ll)
-    LinearLayout fragment_message_ll;
+    @QBindView(R.id.fragment_message_rv)
+    RecyclerView fragment_message_ll;
 
     private StateLayoutManager stateLayoutManager;
 
