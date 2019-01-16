@@ -1,6 +1,5 @@
 package com.qishui.contact.fragment;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -9,7 +8,6 @@ import com.qishui.commontoolslibrary.annotation.QBindView;
 import com.qishui.commontoolslibrary.base.BaseQiShuiFragment;
 import com.qishui.commontoolslibrary.state.StateLayoutManager;
 import com.qishui.contact.R;
-import com.qishui.mylibrary.base.BaseFragment;
 
 /**
  * Created by zhou on 2018/12/20.
@@ -23,7 +21,7 @@ public class HappyFragment extends BaseQiShuiFragment {
     private StateLayoutManager stateLayoutManager;
 
     @Override
-    public void setStateLayoutAttrs() {
+    public void setStateLayoutAttrs(View view) {
         stateLayoutManager=StateLayoutManager.with(fragment_happy_ll);
     }
 
@@ -33,7 +31,7 @@ public class HappyFragment extends BaseQiShuiFragment {
     }
 
     @Override
-    protected void initEvent(Bundle savedInstanceState) {
+    protected void initEvent(View view) {
 
         stateLayoutManager.showLoading();
         new Handler().postDelayed(new Runnable() {

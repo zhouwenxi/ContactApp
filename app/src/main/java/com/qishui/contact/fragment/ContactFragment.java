@@ -1,7 +1,7 @@
 package com.qishui.contact.fragment;
 
-import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.qishui.commontoolslibrary.annotation.QBindView;
@@ -20,18 +20,18 @@ public class ContactFragment extends BaseQiShuiFragment {
 
     private StateLayoutManager stateLayoutManager;
 
-    @Override
-    public void setStateLayoutAttrs() {
-        stateLayoutManager=StateLayoutManager.with(fragment_contract_ll);
-    }
 
     @Override
     protected int initLayout() {
         return R.layout.fragment_contract;
     }
 
+    public void setStateLayoutAttrs(View view){
+        stateLayoutManager=StateLayoutManager.with(fragment_contract_ll);
+    }
+
     @Override
-    protected void initEvent(Bundle savedInstanceState) {
+    protected void initEvent(View view) {
 
         stateLayoutManager.showLoading();
         new Handler().postDelayed(new Runnable() {
@@ -40,7 +40,7 @@ public class ContactFragment extends BaseQiShuiFragment {
                 stateLayoutManager.showDataError();
             }
         },2000);
-
     }
+
 
 }
